@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var activado = false
+
         val texto = findViewById<TextView>(R.id.prueba)
 
         val boton = findViewById<Button>(R.id.button)
@@ -21,8 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         boton.setOnClickListener{
             texto.text = "Caca"
-            fondo.setBackgroundColor(resources.getColor(R.color.black))
+
+            fondo.setBackgroundResource(R.color.black)
+
             texto.setTextColor(resources.getColor(R.color.white))
+            if(activado){
+                fondo.setBackgroundResource(R.color.white)
+                texto.setTextColor(resources.getColor(R.color.black))
+                texto.text = "Hello pisha!!"
+        }
+            activado = !activado
 
         }
     }
